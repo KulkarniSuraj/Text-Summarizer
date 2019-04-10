@@ -1,4 +1,4 @@
-from nltk.tokenize import word_tokenize, sent_tokenize
+from nltk.tokenize import word_tokenize, sent_tokenize, PunktSentenceTokenizer
 from nltk.corpus import stopwords
 import heapq
 
@@ -6,11 +6,14 @@ import heapq
 file = open('./texts/good articles in wikipedia.txt')
 text = file.read()
 
+train_data = text
+custom_sent_tokenizer = PunktSentenceTokenizer(train_text=train_data)
+
 tokenized_sent = []
 tokenized_words = []
 
-#tokenize sentences
-for line in sent_tokenize(text):
+# tokenize sentences
+for line in custom_sent_tokenizer.tokenize(text):
     tokenized_sent.append(line)
 
 # tokenize words
@@ -50,7 +53,7 @@ for sent in tokenized_sent:
 # finding top sentences based on their frequencies
 summary_sentences = heapq.nlargest(5, sent_scores, key = sent_scores.get)
 
-# joining the sentences to crate summary
+# joining the sentences to create summary
 summary = ' '.join(summary_sentences)  
 print(summary) 
 
