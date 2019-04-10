@@ -54,7 +54,7 @@ summary_sentences = heapq.nlargest(5, sent_scores, key = sent_scores.get)
 summary = ' '.join(summary_sentences)  
 print(summary) 
 
-print('~' * 20, 'original article', '~' * 20)
+print('~' * 20, 'original article', '~' * 20, "\n")
 print(text)
 
 
