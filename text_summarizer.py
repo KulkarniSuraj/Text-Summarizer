@@ -1,23 +1,39 @@
+# dependencies
 from nltk.tokenize import word_tokenize, sent_tokenize, PunktSentenceTokenizer
 from nltk.corpus import stopwords
 import heapq
+from bs4 import BeautifulSoup
+import requests
+import re
 
+# getting the source from url
+source = requests.get("https://en.wikipedia.org/wiki/Ketosis").text
+soup = BeautifulSoup(source, 'lxml')
 
-file = open('./texts/good articles in wikipedia.txt')
-text = file.read()
+# getting list of all paragraphs on page
+article = soup.find_all('p')
 
-train_data = text
+article_text = ""
+for para in article:
+    article_text += para.text
+
+# removing brackets and replacing them with spaces
+article_text = re.sub(r'\[[0-9]*\]', ' ', article_text)
+# removing extra spaces and replacing them with single space
+article_text = re.sub(r'\s+', ' ', article_text)
+train_data = article_text
+
 custom_sent_tokenizer = PunktSentenceTokenizer(train_text=train_data)
 
 tokenized_sent = []
 tokenized_words = []
 
 # tokenize sentences
-for line in custom_sent_tokenizer.tokenize(text):
+for line in custom_sent_tokenizer.tokenize(article_text):
     tokenized_sent.append(line)
 
 # tokenize words
-for word in word_tokenize(text):
+for word in word_tokenize(article_text):
     tokenized_words.append(word)
 
 # stop words collection
@@ -58,6 +74,6 @@ summary = ' '.join(summary_sentences)
 print(summary) 
 
 print('~' * 20, 'original article', '~' * 20, "\n")
-print(text)
+print(article_text)
 
 
