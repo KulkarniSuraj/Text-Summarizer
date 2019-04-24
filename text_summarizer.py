@@ -10,15 +10,19 @@ import re
 source = requests.get("https://en.wikipedia.org/wiki/Ketosis").text
 soup = BeautifulSoup(source, 'lxml')
 
-# getting list of all paragraphs on page
+# obtain list of all paragraphs on page
 article = soup.find_all('p')
 
 article_text = ""
 for para in article:
     article_text += para.text
 
+# Using file
+# with open("./texts/good articles in wikipedia.txt", "r") as f:
+#     article_text = f.read()
+
 # removing brackets and replacing them with spaces
-article_text = re.sub(r'\[[0-9]*\]', ' ', article_text)
+article_text = re.sub(r'\[[0-9a-zA-Z]*\]', ' ', article_text)
 # removing extra spaces and replacing them with single space
 article_text = re.sub(r'\s+', ' ', article_text)
 train_data = article_text
@@ -67,13 +71,13 @@ for sent in tokenized_sent:
                     sent_scores[sent] += word_frequencies[word]
 
 # finding top sentences based on their frequencies
-summary_sentences = heapq.nlargest(5, sent_scores, key = sent_scores.get)
+summary_sentences = heapq.nlargest(5, sent_scores, key=sent_scores.get)
 
 # joining the sentences to create summary
 summary = ' '.join(summary_sentences)  
 print(summary) 
 
-print('~' * 20, 'original article', '~' * 20, "\n")
+print("\n", '~' * 20, 'original article', '~' * 20, "\n")
 print(article_text)
 
 

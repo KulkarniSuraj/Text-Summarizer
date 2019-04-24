@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<title>
+</title>
+<style>
+  body {
+    background-image: url("static/images/9.jpeg");
+  }
+
+  #fade {
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 1550px;
+    height: 1300px;
+    margin-left: -20px;
+    margin-top: -40px;
+  }
+
+  ul {
+
+    float: right;
+    list-style-type: none;
+    margin-top: 55px;
+
+
+  }
+
+  ul li {
+
+    display: inline-block;
+
+  }
+
+  ul li a {
+
+    text-decoration: none;
+    color: #fff;
+    padding: 5px 20px;
+    border: 1px solid trasparent;
+    transition: 0.6s ease;
+  }
+
+  ul li a:hover {
+
+    background-color: #fff;
+    color: #000;
+
+  }
+
+  .logo p {
+
+    float: left;
+    width: auto;
+    font-size: 43px;
+    color: lavender;
+    font-family: bookman;
+    margin-top: 30px;
+    text-shadow: 2px 3px DarkSlateBlue;
+  }
+
+  .main {
+    max-width: 1200px;
+    margin: auto;
+
+    z-index: 10;
+  }
+
+  .textbox {
+    position: absolute;
+    box-shadow: 2px 3px #000;
+    height: 200px;
+    width: 400px;
+    background-color: rgba(0, 0, 0, 0.5);
+    margin-left: 550px;
+    margin-top: 250px;
+    padding: 20px;
+  }
+
+  textarea {
+    width: 100%;
+    padding: 7px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 2px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical;
+    height: 100px;
+    color: black;
+
+
+  }
+
+  input[type=submit] {
+    background-image: linear-gradient(to bottom, black, grey);
+    padding: 12px 20px;
+    color: lavender;
+    font-size: 15px;
+    font-family: Bookman;
+    border-radius: 4px;
+    border: none;
+    width: 370px;
+    cursor: pointer;
+    margin-left: 10px;
+    transition: 0.6s ease;
+
+  }
+
+  input[type=submit]:hover {
+    background-image: linear-gradient(to bottom, grey, black);
+
+
+  }
+</style>
+
+<body>
+
+  <div id="fade">
+  <div class="main">
+    <div class="logo">
+      <p> TEXT SUMMERIZER</p>
+    </div>
+
+    <ul>
+        <li><a href="home">HOME</a></li>
+        <li><a href="services">SERVICES</a></li>
+        <li><a href="portfolio">PORTFOLIO</a></li>
+        <li><a href="contact">CONTACT</a></li>
+        <li><a href="about">ABOUT US</a></li>
+    </ul>
+  </div>
+
+    <div class="textbox">
+      <form>
+
+        <label style="font-size:20px;color: white;text-align: center;padding:100px;">
+          Enter your url here
+        </label>
+
+        <textarea id="text" name="urltext" placeholder="Copy your text here....">
+        </textarea>
+
+        <h><input type="submit" name="submit" value="GET SUMMERY"></h>
+
+      </form>
+
+    </div>
+
+  </div>
+</body>
+</html>
