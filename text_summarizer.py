@@ -88,7 +88,7 @@ def wiki_info(url):
     return article
 
 
-# driver code
+
 stop_words = set(stopwords.words("english"))  # stop words collection
 
 

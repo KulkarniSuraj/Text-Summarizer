@@ -1,8 +1,23 @@
-from flask import Flask, render_template, request, url_for
+from flask import Flask, render_template, request, url_for, flash, redirect
+from werkzeug.utils import secure_filename
 import text_summarizer
 import os
+import codecs
+
+UPLOAD_FOLDER = './uploads'
+ALLOWED_EXTENSIONS = set(['txt'])
+
 
 app = Flask(__name__)
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+
+def allowed_file(filename):
+	return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
+
+def read_file(file_name):
+	with codecs.open(file_name, 'r', 'utf-8') as f:
+		file_data = f.read()
+		return file_data     
 
 @app.route("/")
 @app.route("/home")
@@ -32,9 +47,18 @@ def submit_text():
 	user_text = request.form['userText']
 	return render_template("DocSum.html", p=text_summarizer.summarize_text(user_text))
 
-@app.route('/docSummary', methods=['POST', 'GET'])
-def upload_file():
-	pass
+
+
+@app.route('/upload_text_file', methods=['POST', 'GET'])
+def file_upload():
+	if request.method == "POST":
+		if request.files:
+			txtf = request.files['txtfile']
+			txtf.save(os.path.join(app.config["UPLOAD_FOLDER"], "mytext.txt"))
+			print("file saved successfully")
+			return text_summarizer.summarize_text(read_file('./uploads/mytext.txt'))
+
+	return render_template("upload_file.html")
 
 
 if __name__ == "__main__":
