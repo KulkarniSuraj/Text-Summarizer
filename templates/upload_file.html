@@ -1,24 +1,161 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <style>
+        body {
+            background-image: url("./static/images/10.jpeg");
+        }
+
+        #fade {
+            background-color: rgba(0, 0, 0, 0.5);
+            width: 1550px;
+            height: 1300px;
+            margin-left: -20px;
+            margin-top: -20px;
+        }
+
+        ul {
+
+            float: right;
+            list-style-type: none;
+            margin-top: 55px;
+            margin-right: 170px;
+
+
+        }
+
+        ul li {
+
+            display: inline-block;
+
+        }
+
+        ul li a {
+
+            text-decoration: none;
+            color: #fff;
+            padding: 5px 20px;
+            border: 1px solid trasparent;
+            transition: 0.6s ease;
+        }
+
+        ul li a:hover {
+
+            background-color: #fff;
+            color: #000;
+
+        }
+
+        .logo p {
+
+            float: left;
+            width: auto;
+            font-size: 43px;
+            color: lavender;
+            font-family: bookman;
+            margin-top: 30px;
+            text-shadow: 2px 3px DarkSlateBlue;
+            margin-left: 100px;
+        }
+
+        .filebox {
+		position: absolute;
+		box-shadow: 2px 3px #000;
+		height: 170px;
+		width: 400px;
+		background-color: rgba(0, 0, 0, 0.5);
+		margin-left: 480px;
+		margin-top: 300px;
+		padding: 20px;
+
+
+	}
+
+    
+	input[type=submit] {
+		background-image: linear-gradient(to bottom, black, grey);
+		padding: 8px 20px;
+		color: lavender;
+		font-size: 15px;
+		font-family: Bookman;
+		border-radius: 4px;
+		border: none;
+		width: 370px;
+		cursor: pointer;
+		margin-left: 10px;
+		transition: 0.6s ease;
+
+	}
+
+	input[type=submit]:hover {
+		background-image: linear-gradient(to bottom, grey, black);
+
+	}
+
+input[type=file] {
+    margin-top: 40px;
+    box-shadow: 1px 1px 1px 1px whitesmoke;
+    color: aliceblue;
+    margin-left: 27px;
+    height: 30px;
+    width:300px;
+    font-size: 20px;
+    padding: 15px;
+    font-family: bookman;
+}
+
+.title {
+
+position: absolute;
+margin-top: 15%;
+margin-left: 35%;
+color:whitesmoke;
+text-align: center;
+}
+    </style>
 </head>
+
 <body>
-        <div class="filebox">
-                <form action="/upload_text_file" method="POST" enctype="multipart/form-data" id="filepath">
-                    
-                    <label>Enter file path here</label>
-    
-                    <h> 
-                        <input type="file" name="txtfile" id="textfile" >
-                    </h><br><br>
-                    <input type="submit" name="submitfile" value="GET SUMMARY">    
-    
-                </form>
-    
+    <div id="fade">
+
+        <div class="main">
+            <div class="logo">
+                <p>TEXT SUMMARIZER</p>
             </div>
+
+            <ul>
+                <li><a href="/home">HOME</a></li>
+                <li><a href="/services">SERVICES</a></li>
+                <li><a href="#">SHOWCASE</a></li>
+                <li><a href="#">CONTACT</a></li>
+                <li><a href="/about">ABOUT US</a></li>
+
+            </ul>
+        </div>
+        <div class="title">
+			<h style="font-size: 30px;"><b>DOCUMENT &nbsp;SUMMARIZATION</b></h>
+			<p>summarize your text file</p>
+		</div>
+
+        <div class="filebox">
+            <form action="/upload_text_file" method="POST" enctype="multipart/form-data" id="filepath">
+
+                <label style="margin-left:100px;color:white;font-size:19px;font-family:sans-serif">Upload your text file</label>
+
+                <h>
+                    <input type="file" name="txtfile" id="textfile"> 
+                </h><br><br>
+                <input type="submit" name="submitfile" value="GET SUMMARY">
+
+            </form>
+
+        </div>
+        </div>
 </body>
+
 </html>

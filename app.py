@@ -39,13 +39,14 @@ def doc_summary():
 @app.route("/webSummary", methods=['POST', 'GET'])
 def my_url():
 	url = request.form['urltext']
-	return text_summarizer.get_summary(url.strip())
+	return render_template("output.html", p=text_summarizer.get_summary(url.strip()))
+	 
 	
 
 @app.route('/docSummary', methods=['POST'])
 def submit_text():
 	user_text = request.form['userText']
-	return render_template("DocSum.html", p=text_summarizer.summarize_text(user_text))
+	return render_template("output.html", p=text_summarizer.summarize_text(user_text))
 
 
 
@@ -56,7 +57,8 @@ def file_upload():
 			txtf = request.files['txtfile']
 			txtf.save(os.path.join(app.config["UPLOAD_FOLDER"], "mytext.txt"))
 			print("file saved successfully")
-			return text_summarizer.summarize_text(read_file('./uploads/mytext.txt'))
+			text_summary = text_summarizer.summarize_text(read_file('./uploads/mytext.txt'))
+			return render_template('output.html', p=text_summary)
 
 	return render_template("upload_file.html")
 

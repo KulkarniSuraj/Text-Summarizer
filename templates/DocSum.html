@@ -7,11 +7,11 @@
 </header>
 <style>
 	body {
-		background-image: url("10.jpeg");
+		background-image: url("./static/images/10.jpeg");
 	}
 
 	#fade {
-		background-color: rgba(0, 0, 0, 0.5);
+		background-color: rgba(0, 0, 0, 0.75);
 		width: 1550px;
 		height: 1300px;
 		margin-left: -20px;
@@ -23,6 +23,7 @@
 		float: right;
 		list-style-type: none;
 		margin-top: 55px;
+		margin-right: 80px;
 
 
 	}
@@ -58,12 +59,12 @@
 		font-family: bookman;
 		margin-top: 30px;
 		text-shadow: 2px 3px DarkSlateBlue;
+		margin-left: -30px;
 	}
 
 	.main {
 		max-width: 1200px;
 		margin: auto;
-
 		z-index: 10;
 	}
 
@@ -79,11 +80,11 @@
 	.textbox {
 		position: absolute;
 		box-shadow: 2px 3px #000;
-		height: 170px;
+		height: 220px;
 		width: 400px;
 		background-color: rgba(0, 0, 0, 0.5);
-		margin-left: 250px;
-		margin-top: 350px;
+		margin-left: 480px;
+		margin-top: 300px;
 		padding: 20px;
 	}
 
@@ -110,7 +111,7 @@
 		margin-top: 6px;
 		margin-bottom: 16px;
 		resize: vertical;
-		height: 130px;
+		height: 180px;
 		color: black;
 
 
@@ -144,12 +145,12 @@
 
 		<div class="main">
 			<div class="logo">
-				<p> TEXT SUMMERIZER</p>
+				<p>TEXT SUMMARIZER</p>
 			</div>
 
 			<ul>
-				<li><a href="home1.html">HOME</a></li>
-				<li><a href="services.html">SERVICES</a></li>
+				<li><a href="/home">HOME</a></li>
+				<li><a href="/services">SERVICES</a></li>
 				<li><a href="#">SHOWCASE</a></li>
 				<li><a href="#">CONTACT</a></li>
 				<li><a href="#">ABOUT US</a></li>
@@ -159,10 +160,9 @@
 
 
 		<div class="title">
-			<h style="font-size: 30px;"><b>DOCUMENT SUMMARIZATION</b></h>
-			<p  style="font-size: 18px;">choose the method you want</p>
+			<h style="font-size: 30px;"><b>DOCUMENT &nbsp;SUMMARIZATION</b></h>
+			<p>summarize your raw text</p>
 		</div>
-               <p style="font-size:30px;margin-top: 400px;position: absolute;color: white;margin-left:740px; ">OR</p>
 
 		<div class="textbox">
 			<form action="{{ url_for('submit_text')}}" method="POST">
@@ -172,16 +172,9 @@
 
 		</div>
 
-		
-
-
-
-
-
-
 	</div>
 	<p>
-		{{ p }}
+		
 	</p>
 </body>
 

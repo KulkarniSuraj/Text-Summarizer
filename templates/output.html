@@ -1,0 +1,119 @@
+<html>
+
+<style>
+
+  body {
+    background-image: url("./static/images/10.jpeg");
+  }
+
+  #fade {
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 1550px;
+    height: 1300px;
+    margin-left: -20px;
+    margin-top: -20px;
+    position: absolute;
+  }
+
+  ul {
+
+    float: right;
+    list-style-type: none;
+    margin-top: 55px;
+    margin-right:60px;
+
+
+  }
+
+  ul li {
+
+    display: inline-block;
+
+  }
+
+  ul li a {
+
+    text-decoration: none;
+    color: #fff;
+    padding: 5px 20px;
+    border: 1px solid trasparent;
+    transition: 0.6s ease;
+  }
+
+  ul li a:hover {
+
+    background-color: #fff;
+    color: #000;
+
+  }
+
+  .logo p {
+
+    float: left;
+    width: auto;
+    font-size: 43px;
+    color: lavender;
+    font-family: bookman;
+    margin-top: 30px;
+    margin-left: 90px;
+    text-shadow: 2px 3px DarkSlateBlue;
+  }
+
+.SummaryBox{
+    height:500px;
+    width:700px;
+    border: 1px solid #777;
+    margin-left: 380px;
+    margin-top: 200px;
+    background-color: rgba(0,0,0,0.3);
+
+  }
+
+
+  .TextSummary{
+
+border: 1px solid white;
+  height:350px;
+  width:600px;
+  margin-top:50px;
+  margin-left:50px;  
+    
+}
+
+.TextSummary p {
+        color: white;
+        font-size: 20px;
+}
+
+
+</style>
+  <body>
+
+    <div id="fade">
+
+
+    <div class="main">
+      <div class="logo">
+        <p> TEXT SUMMARIZER</p>
+      </div>
+
+      <ul>
+        <li><a href="home1.html">HOME</a></li>
+        <li><a href="services.html">SERVICES</a></li>
+        <li><a href="#">SHOWCASE</a></li>
+        <li><a href="#">CONTACT</a></li>
+        <li><a href="#">ABOUT US</a></li>
+
+      </ul>
+    </div>
+
+    <div class="SummaryBox">
+      <h1 style="color: white;font-size: 20px;text-align: center;margin-top: 20px;"> title</h1>
+      <div class="TextSummary">
+        <p>{{ p }}</p>
+      </div>
+    </div>
+    </div>
+    <script type="text/javascript">document.getElementById("write").innerHTML = window.location.search</script>>
+    </body>
+    </html>
